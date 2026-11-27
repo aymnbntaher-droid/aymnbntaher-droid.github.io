@@ -1,5 +1,5 @@
-/* ألعاب الورق — يخلّي التطبيق يفتح بدون إنترنت. v1.3 */
-const C='lamma-1.3-1795787223601';
+/* ألعاب الورق — يخلّي التطبيق يفتح بدون إنترنت. v1.4 */
+const C='lamma-1.4-1795789255067';
 const CORE=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png','./icons/favicon-64.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
